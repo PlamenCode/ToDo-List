@@ -1,0 +1,15 @@
+@import url(./list.css);
+@import url(./authentication.css);
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #3a0b87, #0f9aaf);
+}
+
+
