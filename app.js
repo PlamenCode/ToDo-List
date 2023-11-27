@@ -1,6 +1,12 @@
 const input = document.getElementById('input-box');
 const list = document.getElementById('list-container');
 const addBtn = document.getElementById('addBtn');
+const container = document.querySelector('container');
+
+const authContainer = document.querySelector('authentication');
+const form = document.querySelector('form');
+
+getData();
 
 addBtn.addEventListener('click', () => {
     if(input.value == ''){
@@ -16,6 +22,7 @@ addBtn.addEventListener('click', () => {
 
     list.appendChild(li);
     input.value = '';
+    saveData();
 });
 
 
@@ -23,7 +30,19 @@ list.addEventListener('click', (e) => {
     e.preventDefault();
     if(e.target.tagName == 'LI'){
         e.target.classList.toggle('checked');
+        saveData();
     } else if(e.target.tagName == 'SPAN'){
         e.target.parentElement.remove();
+        saveData();
     }
 })
+
+
+function saveData(){
+    localStorage.setItem('data', list.innerHTML)
+};
+
+function getData(){
+    list.innerHTML = localStorage.getItem('data');
+}
+
